@@ -1,0 +1,9 @@
+#divColor {
+    background-color: rgba(255, 196, 0, 0.541);
+    height: 100px;
+    width: 150px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
