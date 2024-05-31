@@ -26,26 +26,36 @@ const listaProductos = [
     }
 ];
 
-listaProductos.map((product) => {
-    $parrafo.innerHTML += ` <li>${product.name} | ${product.price}</li>`
+// listaProductos.map((product) => {
+//     $parrafo.innerHTML += ` <li>${product.name} | ${product.price}</li>`
 
+// });
+listaProductos.find((product) => {
+    $parrafo.innerHTML += `<li>${product.name} | ${product.price} </li>`;
 });
 
-$button.addEventListener("click", () => {
+$input.addEventListener("input", () => {
     const inputValue = $input.value.toLowerCase();
 
-    const filterProduct = listaProductos.find((product) => {
+    const filterProduct = listaProductos.filter((product) => {
         if (
-            product.name.includes(inputValue)
-        );
-        $parrafo.innerHTML += `<li>${product.name} | ${product.price}<li/>`
+            product.name.includes(inputValue) || String(product.price).includes(inputValue)
+        ) {
+            return product;
+        }
+
     });
-
-
+    $parrafo.innerHTML = "";
+    filterProduct.forEach((product) => {
+        $parrafo.innerHTML += `<li>${product.name} | ${product.price}<li/>`
+    })
 
 
 });
+
+
 
 $form.addEventListener("submit", (e) => {
     e.preventDefault()
 })
+
